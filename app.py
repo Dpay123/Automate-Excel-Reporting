@@ -21,7 +21,10 @@ pivot = df_all.groupby(['Shift']).mean()
 shift_productivity = pivot.loc[:, "Production Run Time (Min)":"Products Produced (Units)"]
 print(shift_productivity)
 
-# Graphing
+# Graphing (can change formatting per documentation)
 shift_productivity.plot(kind='bar')
 plt.savefig('plot.png')
-plt.show()
+plt.show() # does not work in WSL, must use Python digital environment
+
+# export to excel
+df_all.to_excel("output.xlsx")
